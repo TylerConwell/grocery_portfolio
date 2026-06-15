@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap');
 
 :root {
-  --bg-gradient: linear-gradient(135deg, #ffe5ec 0%, #fff0f5 50%, #e8dbfc 100%);
+  --bg-gradient: linear-gradient(135deg, #aacc96 0%, #a4d08b 50%, #7ecc50 100%);
   --primary-pink: #ff85a2;
   --accent-yellow: #ffd166;
-  --mint-green: #9bf6ff;
-  --soft-purple: #bdb2ff;
+  --mint-green: #afab23;
+  --soft-purple: #25533f;
   --ink-black: #1a1a1a;
 }
 
@@ -54,7 +54,7 @@
 
 /* The Sticker-Style Product Card */
 .product-card {
-  background: #ffffff;
+  background: #b79a65;
   border: 3px solid var(--ink-black);
   border-radius: 24px;
   padding: 16px;
@@ -133,7 +133,9 @@
 }
 
 .add-to-cart-btn:hover {
-  background: #7bf1ff;
+  background: #849e15;
+  transform: translateY(1px);
+  box-shadow: 0 2px var(--ink-black); 
 }
 
 .add-to-cart-btn:active {

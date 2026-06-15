@@ -1,6 +1,5 @@
-/* Keep your code lean and clean */
 :root {
-  box-sizing: border-box;
+  box-sizing: border-box; /* keeping the frame borderless */
 }
 
 *, *:before, *:after {
@@ -10,7 +9,13 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #fbfaf7; /* A gentle fallback background */
+
+  background-color: #aacc96; 
+
+
+  /* when the doors open this is the inital green fade in then shows the screen */
+
+  /* background-color: #fbfaf7; over all background color, not sure what to make it currently */
 }
 
 /* Let React use the full screen freely */
