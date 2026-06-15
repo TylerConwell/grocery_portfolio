@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
+import resume from './assets/figma_resume_template.png';
+import vscode from './assets/vscode_figma_template.png';
+
+import floopy from './assets/floopy_vaper.gif';
+
+import idea from './assets/background_link_tyler.jpg';
+
 function App() {
   const [doorsOpen, setDoorsOpen] = useState(false);
 
@@ -13,10 +20,30 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  // UPDATED: Emojis replaced with image path strings. 
+  // You can use regular web URLs (like below) or local paths like "/images/pocky.png"
   const sampleProducts = [
-    { id: 1, name: "Matcha Pocky Box", price: "¥350", badge: "Popular!", emoji: "🍵" },
-    { id: 2, name: "Strawberry Milk Plush", price: "¥1,800", badge: "New", emoji: "🍓" },
-    { id: 3, name: "Shiba Inu Sticker Pack", price: "¥450", badge: "Sale", emoji: "🐕" },
+    { 
+      id: 1, 
+      name: "My Resume", 
+      price: "¥999 (Free for you!)", 
+      badge: "Popular!", 
+      image: resume 
+    },
+    { 
+      id: 2, 
+      name: "My Skills", 
+      price: "¥1,800 (Salery is negotiable)", 
+      badge: "New", 
+      image: vscode 
+    },
+    { 
+      id: 3, 
+      name: "All My Projects", 
+      price: "¥450 (Discounted for you!)", 
+      badge: "Sale", 
+      image: idea 
+    },
   ];
 
   return (
@@ -43,8 +70,8 @@ function App() {
       {/* 2. MAIN KAWAII SHOP WEB PAGE */}
       <div className={`shop-container ${doorsOpen ? 'visible' : ''}`}>
         <header className="shop-header">
-          <h1 className="shop-title">KAWAII POP!</h1>
-          <p className="shop-subtitle">Welcome to your cute Japanese convenience shop ✨</p>
+          <h1 className="shop-title">Portfolio Mart</h1>
+          <p className="shop-subtitle">Welcome to my portfolio convenience shop</p>
         </header>
 
         <main className="product-grid">
@@ -52,8 +79,13 @@ function App() {
             <div key={product.id} className="product-card">
               <span className="product-badge">{product.badge}</span>
               
+              {/* UPDATED: Changed from raw text emoji rendering to an img tag */}
               <div className="product-image-box">
-                {product.emoji}
+                <img 
+                  src={product.image} 
+                  alt={product.name} 
+                  className="product-img"
+                />
               </div>
               
               <div className="product-info">

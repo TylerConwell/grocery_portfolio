@@ -145,6 +145,14 @@
   box-shadow: 0px 0px 0px var(--ink-black);
 }
 
+/* Keeps your new product images neat, responsive, and contained inside the frame */
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops nicely without stretching out your item graphics */
+  border-radius: 12px; /* Curves to fit the inner image border setup */
+}
+
 /* --- CONVENIENCE STORE SLIDING DOORS --- */
 
 /* The full-screen wrapper holding the doors */
@@ -172,12 +180,6 @@
   transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1);
   pointer-events: auto;
   
-  /* FIXED: Added transform-style and z-index to explicitly force 
-     this metal layer to stay stacked perfectly on top of its contents 
-     at all times, preventing animation rendering glitches. */
-  transform-style: preserve-3d;
-  z-index: 2;
-  
   /* Solid matte metal framing panels */
   background: 
     linear-gradient(#b0b7bd, #b0b7bd) top / 100% 40px,
@@ -186,6 +188,25 @@
     linear-gradient(#b0b7bd, #b0b7bd) right / 40px 100%;
   background-repeat: no-repeat;
   background-color: transparent;
+}
+
+/* FIXED: This places small metal color dots exactly behind the 4 sharp corners 
+   of the frame to patch the leaks, but leaves the entire middle hollow and transparent! */
+.door-panel::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  bottom: 36px;
+  left: 36px;
+  right: 36px;
+  background: 
+    radial-gradient(circle at top left, #b0b7bd 15px, transparent 16px),
+    radial-gradient(circle at top right, #b0b7bd 15px, transparent 16px),
+    radial-gradient(circle at bottom left, #b0b7bd 15px, transparent 16px),
+    radial-gradient(circle at bottom right, #b0b7bd 15px, transparent 16px);
+  background-repeat: no-repeat;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* Left door slides left out of view */
@@ -224,38 +245,20 @@
 /* Glass panel inner frame lines */
 .door-glass-line {
   position: absolute;
-  top: 36px;
-  bottom: 36px;
-  left: 36px;
-  right: 36px;
+  top: 40px;
+  bottom: 40px;
+  left: 40px;
+  right: 40px;
   
-
-
-  /* border: 5px solid #1a1a1a;
-  border-radius: 12px; */
-
-
-
-  
-  /* FIXED: Combined with preserve-3d above, moving the glass layer back 
-     in 3D space completely locks the glass behind the metal panel frame. 
-     The corner gaps will remain covered seamlessly from the absolute start. */
-  transform: translateZ(-1px);
-  z-index: 1;
-
-
-
-  
+  /* Your iconic rounded black window frame line—front and center! */
   border: 5px solid #1a1a1a;
   border-radius: 12px;
-
-
-  
+  z-index: 1; 
   
   /* Clear semi-transparent pastel blue window background styling */
   background-color: rgba(142, 202, 230, 0.35); 
   box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(5px); /* Subtle glass distortion effect */
   
   display: flex;
   align-items: center;
@@ -277,7 +280,4 @@
   align-items: center;
   justify-content: center;
   box-shadow: 4px 4px 0px #1a1a1a;
-  
-  /* Keeps the arrow pinned relative to the glass layer */
-  transform: translateZ(1px); 
 }
