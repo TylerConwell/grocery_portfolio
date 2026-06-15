@@ -3,11 +3,12 @@
 
 :root {
   --bg-gradient: linear-gradient(135deg, #aacc96 0%, #a4d08b 50%, #7ecc50 100%);
-  --primary-pink: #252d45;
+  --primary-pink: #6d1f42;
   --accent-yellow: #ffd166;
   --mint-green: #afab23;
   --soft-purple: #25533f;
   --ink-black: #1a1a1a;
+  --big-pink: #d17089;
 }
 
 /* Global setup for the page container */
@@ -17,6 +18,8 @@
   font-family: 'Fredoka', 'M PLUS Rounded 1c', sans-serif;
   color: var(--ink-black);
   padding: 40px 20px;
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Header & Logo styling */
@@ -28,7 +31,7 @@
 .shop-title {
   font-size: 3rem;
   font-weight: 900;
-  color: var(--primary-pink);
+  color: var(--big-pink);
   text-shadow: 
     3px 3px 0px var(--ink-black),
     -1px -1px 0px var(--ink-black),  
@@ -61,7 +64,6 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  /* Thick flat shadow characteristic of kawaii/pop art */
   box-shadow: 6px 6px 0px var(--ink-black);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -94,7 +96,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem; /* Used to display emojis large */
+  font-size: 3rem;
 }
 
 .product-info {
@@ -135,9 +137,6 @@
 .add-to-cart-btn:hover {
   background: #849e15;
   transform: translateY(1px);
-
-  /* box-shadow: inset 0 4px 6px var(--ink-black);  */
-
   box-shadow: 0 2px var(--ink-black); 
 }
 
@@ -145,12 +144,6 @@
   transform: translate(3px, 3px);
   box-shadow: 0px 0px 0px var(--ink-black);
 }
-
-
-
-
-
-
 
 /* --- CONVENIENCE STORE SLIDING DOORS --- */
 
@@ -161,31 +154,43 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 9999; /* Make sure it stays on top of everything */
+  z-index: 9999;
   display: flex;
   overflow: hidden;
-  pointer-events: none; /* Allows clicks to pass through once opened */
+  pointer-events: none;
 }
 
 /* Base style for both door panels */
 .door-panel {
   width: 50vw;
   height: 100vh;
-  background-color: #ffffff;
-  border: 12px solid #1a1a1a; /* Thick kawaii frame border */
+  border: 12px solid #1a1a1a;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   position: relative;
-  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); /* Smooth sliding physics */
-  pointer-events: auto; /* Restores clicking on the doors if needed */
+  transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1);
+  pointer-events: auto;
+  
+  /* FIXED: Added transform-style and z-index to explicitly force 
+     this metal layer to stay stacked perfectly on top of its contents 
+     at all times, preventing animation rendering glitches. */
+  transform-style: preserve-3d;
+  z-index: 2;
+  
+  /* Solid matte metal framing panels */
+  background: 
+    linear-gradient(#b0b7bd, #b0b7bd) top / 100% 40px,
+    linear-gradient(#b0b7bd, #b0b7bd) bottom / 100% 40px,
+    linear-gradient(#b0b7bd, #b0b7bd) left / 40px 100%,
+    linear-gradient(#b0b7bd, #b0b7bd) right / 40px 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
 }
 
 /* Left door slides left out of view */
 .door-left {
-  border-right: 6px solid #1a1a1a; /* Split the middle border evenly */
-  justify-content: flex-end;
-  padding-right: 40px;
+  border-right: 6px solid #1a1a1a;
 }
 .door-entrance-overlay.open .door-left {
   transform: translateX(-100%);
@@ -194,8 +199,6 @@
 /* Right door slides right out of view */
 .door-right {
   border-left: 6px solid #1a1a1a;
-  justify-content: flex-start;
-  padding-left: 40px;
 }
 .door-entrance-overlay.open .door-right {
   transform: translateX(100%);
@@ -210,41 +213,71 @@
   width: 60px;
   height: 30px;
   background-color: #1a1a1a;
-  border-radius: 30px 30px 0 0; /* Half-circle shape like the image */
+  border-radius: 30px 30px 0 0;
   z-index: 10000;
   transition: opacity 0.5s ease;
 }
 .door-entrance-overlay.open .door-sensor {
-  opacity: 0; /* Hide sensor cleanly when doors open */
+  opacity: 0;
 }
 
-/* Glass panel inner frame lines (giving it that automatic door look) */
+/* Glass panel inner frame lines */
 .door-glass-line {
   position: absolute;
-  top: 40px;
-  bottom: 40px;
-  left: 40px;
-  right: 40px;
-  border: 4px solid #1a1a1a;
+  top: 36px;
+  bottom: 36px;
+  left: 36px;
+  right: 36px;
+  
+
+
+  /* border: 5px solid #1a1a1a;
+  border-radius: 12px; */
+
+
+
+  
+  /* FIXED: Combined with preserve-3d above, moving the glass layer back 
+     in 3D space completely locks the glass behind the metal panel frame. 
+     The corner gaps will remain covered seamlessly from the absolute start. */
+  transform: translateZ(-1px);
+  z-index: 1;
+
+
+
+  
+  border: 5px solid #1a1a1a;
   border-radius: 12px;
-  opacity: 0.15; /* Subtly simulates a glass pane window reflection */
+
+
+  
+  
+  /* Clear semi-transparent pastel blue window background styling */
+  background-color: rgba(142, 202, 230, 0.35); 
+  box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(1px);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Thick direction arrows in the middle */
+/* Thick direction arrows inside the glass windows */
 .door-arrow {
-  font-size: 3.5rem;
-  font-weight: 900;
+  font-size: 3rem;
+  color: #1a1a1a;
   user-select: none;
-}
-
-/* --- MAIN CONTENT FADE IN --- */
-.shop-container {
-  opacity: 0;
-  transform: scale(0.98);
-  transition: opacity 1s ease 0.4s, transform 1s ease 0.4s; /* Slight delay so it appears beautifully */
-}
-
-.shop-container.visible {
-  opacity: 1;
-  transform: scale(1);
+  
+  background: #b0b7bd;
+  border: 4px solid #1a1a1a;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 0px #1a1a1a;
+  
+  /* Keeps the arrow pinned relative to the glass layer */
+  transform: translateZ(1px); 
 }

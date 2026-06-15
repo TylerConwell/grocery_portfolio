@@ -11,11 +11,6 @@ body {
   padding: 0;
 
   background-color: #aacc96; 
-
-
-  /* when the doors open this is the inital green fade in then shows the screen */
-
-  /* background-color: #fbfaf7; over all background color, not sure what to make it currently */
 }
 
 /* Let React use the full screen freely */

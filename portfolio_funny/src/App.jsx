@@ -14,9 +14,9 @@ function App() {
   }, []);
 
   const sampleProducts = [
-    { id: 1, name: "Matcha Pocky Box", price: "¥350", emoji: "🍵", badge: "Popular!" },
-    { id: 2, name: "Strawberry Milk Plush", price: "¥1,800", emoji: "🍓", badge: "New" },
-    { id: 3, name: "Shiba Inu Sticker Pack", price: "¥450", emoji: "🐕", badge: "Sale" },
+    { id: 1, name: "Matcha Pocky Box", price: "¥350", badge: "Popular!", emoji: "🍵" },
+    { id: 2, name: "Strawberry Milk Plush", price: "¥1,800", badge: "New", emoji: "🍓" },
+    { id: 3, name: "Shiba Inu Sticker Pack", price: "¥450", badge: "Sale", emoji: "🐕" },
   ];
 
   return (
@@ -27,14 +27,16 @@ function App() {
         
         {/* Left Door */}
         <div className="door-panel door-left">
-          <div className="door-glass-line"></div>
-          <span className="door-arrow">⬅️</span>
+          <div className="door-glass-line">
+            <span className="door-arrow">↑</span>
+          </div>
         </div>
         
         {/* Right Door */}
         <div className="door-panel door-right">
-          <div className="door-glass-line"></div>
-          <span className="door-arrow">➡️</span>
+          <div className="door-glass-line">
+            <span className="door-arrow">↑</span>
+          </div>
         </div>
       </div>
 
