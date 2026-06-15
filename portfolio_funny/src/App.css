@@ -3,7 +3,7 @@
 
 :root {
   --bg-gradient: linear-gradient(135deg, #aacc96 0%, #a4d08b 50%, #7ecc50 100%);
-  --primary-pink: #ff85a2;
+  --primary-pink: #252d45;
   --accent-yellow: #ffd166;
   --mint-green: #afab23;
   --soft-purple: #25533f;
@@ -135,6 +135,9 @@
 .add-to-cart-btn:hover {
   background: #849e15;
   transform: translateY(1px);
+
+  /* box-shadow: inset 0 4px 6px var(--ink-black);  */
+
   box-shadow: 0 2px var(--ink-black); 
 }
 
