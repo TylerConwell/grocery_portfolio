@@ -91,7 +91,7 @@ function App() {
               <div className="product-info">
                 <h2 className="product-name">{product.name}</h2>
                 <span className="product-price">{product.price}</span>
-                <button className="add-to-cart-btn">Add to Cart 🛒</button>
+                <button className="add-to-cart-btn">Add to Cart</button>
               </div>
             </div>
           ))}
