@@ -13,7 +13,7 @@
 
 /* Global setup for the page container */
 .shop-container {
-  min-height: 100vh;
+  min-height: 110vh;
   background: var(--bg-gradient);
   font-family: 'Fredoka', 'M PLUS Rounded 1c', sans-serif;
   color: var(--ink-black);
@@ -280,4 +280,11 @@
   align-items: center;
   justify-content: center;
   box-shadow: 4px 4px 0px #1a1a1a;
+}
+
+
+.shelf-bottom {
+  background-color: #000000;
+  border: 4px solid #1a1a1a;
+  margin-bottom: 80px;
 }

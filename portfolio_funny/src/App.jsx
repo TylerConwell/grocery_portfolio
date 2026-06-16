@@ -67,12 +67,20 @@ function App() {
         </div>
       </div>
 
+
+
       {/* 2. MAIN KAWAII SHOP WEB PAGE */}
       <div className={`shop-container ${doorsOpen ? 'visible' : ''}`}>
         <header className="shop-header">
           <h1 className="shop-title">Portfolio Mart</h1>
           <p className="shop-subtitle">Welcome to my portfolio convenience shop</p>
         </header>
+
+
+        {/* making the bottom of the shelf */}
+        <div className="shelf-bottom">
+
+        </div>
 
         <main className="product-grid">
           {sampleProducts.map((product) => (
@@ -97,6 +105,13 @@ function App() {
           ))}
         </main>
       </div>
+
+
+      {/* making the bottom of the shelf */}
+      <div className="shelf-bottom">
+
+      </div>
+      
     </>
   );
 }

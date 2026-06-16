@@ -15,7 +15,7 @@ body {
 
 /* Let React use the full screen freely */
 #root {
-  min-height: 100vh;
+  min-height: 110vh;
   display: flex;
   flex-direction: column;
 }
