@@ -77,9 +77,17 @@ function App() {
 
 
         {/* making the bottom of the shelf */}
-        <div className="shelf-bottom">
+        <div className="shelf">
+
+          <div className="bottle-container">
+            <div class="cap"></div>
+            <div class="neck"></div>
+            <div class="body"></div>
+          </div>
 
         </div>
+
+    
 
     
 
