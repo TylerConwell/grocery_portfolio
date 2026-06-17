@@ -288,3 +288,9 @@
   border: 4px solid #1a1a1a;
   margin-bottom: 80px;
 }
+
+.shelf_top {
+  background-color: #000000;
+  border: 4px solid #1a1a1a;
+  margin-top: 8px;
+}

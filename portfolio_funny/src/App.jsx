@@ -5,7 +5,6 @@ import resume from './assets/figma_resume_template.png';
 import vscode from './assets/vscode_figma_template.png';
 
 import floopy from './assets/floopy_vaper.gif';
-
 import idea from './assets/background_link_tyler.jpg';
 
 function App() {
@@ -82,6 +81,8 @@ function App() {
 
         </div>
 
+    
+
         <main className="product-grid">
           {sampleProducts.map((product) => (
             <div key={product.id} className="product-card">
@@ -111,7 +112,12 @@ function App() {
       <div className="shelf-bottom">
 
       </div>
-      
+
+
+
+      {/* <div className="shelf-top">
+          
+      </div> */}
     </>
   );
 }
