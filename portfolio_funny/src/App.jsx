@@ -85,6 +85,19 @@ function App() {
             <div class="body"></div>
           </div>
 
+
+          <div className="box-container">
+            <div class="box-lid"></div>
+            <div class="box-body"></div>
+          </div>
+
+          <div className="can-container">
+            <div class="can_body"></div>
+          </div>
+
+          <div className="ceral-box-container">
+            <div class="ceral-box_body"></div>
+          </div>
         </div>
 
     
