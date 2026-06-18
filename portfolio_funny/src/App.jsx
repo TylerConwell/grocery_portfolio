@@ -85,6 +85,11 @@ function App() {
             <div class="body"></div>
           </div>
 
+          <div className="bottle-container">
+            <div class="cap"></div>
+            <div class="neck"></div>
+            <div class="body"></div>
+          </div>
 
           <div className="box-container">
             <div class="box-lid"></div>
@@ -97,6 +102,12 @@ function App() {
 
           <div className="ceral-box-container">
             <div class="ceral-box_body"></div>
+          </div>
+
+          <div className="bottle-container">
+            <div class="cap"></div>
+            <div class="neck"></div>
+            <div class="body"></div>
           </div>
         </div>
 
@@ -130,8 +141,34 @@ function App() {
 
 
       {/* making the bottom of the shelf */}
-      <div className="shelf-bottom">
+      <div className="shelf">
+          <div className="can-container">
+            <div class="can_body"></div>
+          </div>
 
+          <div className="can-container">
+            <div class="can_body"></div>
+          </div>
+
+          <div className="can-container">
+            <div class="can_body"></div>
+          </div>
+
+
+          <div className="box-container">
+            <div class="box-lid"></div>
+            <div class="box-body"></div>
+          </div>
+
+          <div className="box-container">
+            <div class="box-lid"></div>
+            <div class="box-body"></div>
+          </div>
+
+          <div className="box-container">
+            <div class="box-lid"></div>
+            <div class="box-body"></div>
+          </div>
       </div>
 
 
