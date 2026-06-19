@@ -13,7 +13,7 @@
 
 /* Global setup for the page container */
 .shop-container {
-  min-height: 110vh;
+  min-height: 200vh;
   background: var(--bg-gradient);
   font-family: 'Fredoka', 'M PLUS Rounded 1c', sans-serif;
   color: var(--ink-black);
@@ -295,6 +295,20 @@
   margin-bottom: 50px;
 }
 
+
+/* An individual shelf */
+.bottom_shelf {
+  position: relative;
+  display: flex;
+  align-items: flex-end; /* Align books to the bottom of the shelf */
+  gap: 15px;
+  border-bottom: 25px solid #000000;
+  border-radius: 5px;
+  padding: 0 30px;
+  height: 300px; /* Fixed height for the shelf */
+  margin-bottom: 50px;
+  margin-top: 80px;
+}
 
 .bottle-container {
   display: flex;

@@ -100,6 +100,18 @@ function App() {
             <div class="can_body"></div>
           </div>
 
+          <div className="can-container">
+            <div class="can_body"></div>
+          </div>
+
+          <div className="can-container">
+            <div class="can_body"></div>
+          </div>
+
+          <div className="ceral-box-container">
+            <div class="ceral-box_body"></div>
+          </div>
+
           <div className="ceral-box-container">
             <div class="ceral-box_body"></div>
           </div>
@@ -137,45 +149,63 @@ function App() {
             </div>
           ))}
         </main>
+
+
+        {/* making the bottom of the shelf */}
+        <div className="bottom_shelf">
+            <div className="can-container">
+              <div class="can_body"></div>
+            </div>
+
+            <div className="can-container">
+              <div class="can_body"></div>
+            </div>
+
+            <div className="can-container">
+              <div class="can_body"></div>
+            </div>
+
+
+            <div className="box-container">
+              <div class="box-lid"></div>
+              <div class="box-body"></div>
+            </div>
+
+            <div className="box-container">
+              <div class="box-lid"></div>
+              <div class="box-body"></div>
+            </div>
+
+            <div className="box-container">
+              <div class="box-lid"></div>
+              <div class="box-body"></div>
+            </div>
+
+            <div className="bottle-container">
+              <div class="cap"></div>
+              <div class="neck"></div>
+              <div class="body"></div>
+            </div>
+
+            <div className="bottle-container">
+              <div class="cap"></div>
+              <div class="neck"></div>
+              <div class="body"></div>
+            </div>
+
+
+            <div className="bottle-container">
+              <div class="cap"></div>
+              <div class="neck"></div>
+              <div class="body"></div>
+            </div>
+
+        </div>
+
+
       </div>
 
 
-      {/* making the bottom of the shelf */}
-      <div className="shelf">
-          <div className="can-container">
-            <div class="can_body"></div>
-          </div>
-
-          <div className="can-container">
-            <div class="can_body"></div>
-          </div>
-
-          <div className="can-container">
-            <div class="can_body"></div>
-          </div>
-
-
-          <div className="box-container">
-            <div class="box-lid"></div>
-            <div class="box-body"></div>
-          </div>
-
-          <div className="box-container">
-            <div class="box-lid"></div>
-            <div class="box-body"></div>
-          </div>
-
-          <div className="box-container">
-            <div class="box-lid"></div>
-            <div class="box-body"></div>
-          </div>
-      </div>
-
-
-
-      {/* <div className="shelf-top">
-          
-      </div> */}
     </>
   );
 }
