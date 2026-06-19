@@ -1,20 +1,28 @@
-/* Import Kawaii-friendly fonts directly from Google Fonts */
+/* japanese counterstore cute idea font */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap');
 
 :root {
-  --bg-gradient: linear-gradient(135deg, #aacc96 0%, #a4d08b 50%, #7ecc50 100%);
-  --primary-pink: #6d1f42;
+  --bg-green-gradient: linear-gradient(135deg, #aacc96 0%, #a4d08b 50%, #7ecc50 100%);
+  --grape-juice: #6d1f42;
   --accent-yellow: #ffd166;
-  --mint-green: #afab23;
-  --soft-purple: #25533f;
+  --olive-green: #afab23;
+  --forest: #25533f;
   --ink-black: #1a1a1a;
-  --big-pink: #d17089;
+  --dusty-berry: #d17089;
+
+  --peaches: #fbb28b;
+  --bottom-orange: #f9a273;
+  --hay-fields: #b79a65;
+  --spring-leaves: #849e15;
+  --good-surf: #92a2a6;
+  --gold-velvet: #b28622;
+  --fuchsia-flowers: #ea5e86;
 }
 
 /* Global setup for the page container */
 .shop-container {
   min-height: 200vh;
-  background: var(--bg-gradient);
+  background: var(--bg-green-gradient);
   font-family: 'Fredoka', 'M PLUS Rounded 1c', sans-serif;
   color: var(--ink-black);
   padding: 40px 20px;
@@ -25,13 +33,12 @@
 /* Header & Logo styling */
 .shop-header {
   text-align: center;
-  /* margin-bottom: 40px; */
 }
 
 .shop-title {
   font-size: 4rem;
   font-weight: 900;
-  color: var(--big-pink);
+  color: var(--dusty-berry);
   text-shadow: 
     3px 3px 0px var(--ink-black),
     -1px -1px 0px var(--ink-black),  
@@ -43,7 +50,7 @@
 
 .shop-subtitle {
   font-size: 1.1rem;
-  color: #666;
+  color: var(--ink-black);
 }
 
 /* Grid Layout for the items */
@@ -57,7 +64,7 @@
 
 /* The Sticker-Style Product Card */
 .product-card {
-  background: #b79a65;
+  background: var(--hay-fields);
   border: 3px solid var(--ink-black);
   border-radius: 24px;
   padding: 16px;
@@ -89,7 +96,7 @@
 
 /* Mock Image Placeholder */
 .product-image-box {
-  background: var(--soft-purple);
+  background: var(--forest);
   aspect-ratio: 1;
   border: 3px solid var(--ink-black);
   border-radius: 16px;
@@ -115,14 +122,14 @@
 .product-price {
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--primary-pink);
+  color: var(--grape-juice);
   margin-bottom: 16px;
 }
 
 /* Chunky Pop Button */
 .add-to-cart-btn {
   margin-top: auto;
-  background: var(--mint-green);
+  background: var(--olive-green);
   border: 3px solid var(--ink-black);
   border-radius: 16px;
   padding: 10px;
@@ -135,7 +142,7 @@
 }
 
 .add-to-cart-btn:hover {
-  background: #849e15;
+  background: var(--spring-leaves);
   transform: translateY(1px);
   box-shadow: 0 2px var(--ink-black); 
 }
@@ -172,7 +179,7 @@
 .door-panel {
   width: 50vw;
   height: 100vh;
-  border: 12px solid #1a1a1a;
+  border: 12px solid var(--ink-black);
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -211,7 +218,7 @@
 
 /* Left door slides left out of view */
 .door-left {
-  border-right: 6px solid #1a1a1a;
+  border-right: 6px solid var(--ink-black);
 }
 .door-entrance-overlay.open .door-left {
   transform: translateX(-100%);
@@ -219,7 +226,7 @@
 
 /* Right door slides right out of view */
 .door-right {
-  border-left: 6px solid #1a1a1a;
+  border-left: 6px solid var(--ink-black);
 }
 .door-entrance-overlay.open .door-right {
   transform: translateX(100%);
@@ -233,7 +240,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 30px;
-  background-color: #1a1a1a;
+  background-color: var(--ink-black);
   border-radius: 30px 30px 0 0;
   z-index: 10000;
   transition: opacity 0.5s ease;
@@ -251,7 +258,7 @@
   right: 40px;
   
   /* Your iconic rounded black window frame line—front and center! */
-  border: 5px solid #1a1a1a;
+  border: 5px solid var(--ink-black);
   border-radius: 12px;
   z-index: 1; 
   
@@ -268,17 +275,17 @@
 /* Thick direction arrows inside the glass windows */
 .door-arrow {
   font-size: 3rem;
-  color: #1a1a1a;
+  color: var(--ink-black);
   user-select: none;
-  background: #b0b7bd;
-  border: 4px solid #1a1a1a;
+  background: var(--good-surf);
+  border: 4px solid var(--ink-black);
   border-radius: 50%;
   width: 75px;
   height: 75px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 4px 4px 0px #1a1a1a;
+  box-shadow: 4px 4px 0px var(--ink-black);
 }
 
 
@@ -288,7 +295,7 @@
   display: flex;
   align-items: flex-end; /* Align books to the bottom of the shelf */
   gap: 10px;
-  border-bottom: 25px solid #000000; /* Wood-colored shelf */
+  border-bottom: 25px solid var(--gold-velvet);
   border-radius: 5px;
   padding: 0 30px;
   height: 250px; /* Fixed height for the shelf */
@@ -302,7 +309,7 @@
   display: flex;
   align-items: flex-end; /* Align books to the bottom of the shelf */
   gap: 15px;
-  border-bottom: 25px solid #000000;
+  border-bottom: 25px solid var(--gold-velvet);
   border-radius: 5px;
   padding: 0 30px;
   height: 300px; /* Fixed height for the shelf */
@@ -407,9 +414,9 @@
 .box-body {
   width: 150px;
   height: 100px;
-  background-color: #ddd;
+  background-color: var(--peaches);
   border-radius: 5px;
-  border-bottom: 2px solid #aaa;
+  border-bottom: 2px solid var(--bottom-orange);
 }
 
 
@@ -423,7 +430,7 @@
 .ceral-box_body {
   width: 190px;
   height: 200px;
-  background-color: #ddd;
+  background-color: var(--fuchsia-flowers);
   border-radius: 5px;
-  border-bottom: 2px solid #aaa;
+  border-bottom: 2px solid var(--dusty-berry);
 }

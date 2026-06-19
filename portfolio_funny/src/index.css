@@ -1,5 +1,6 @@
+/* making the page with no borders so it is edge to edge */
 :root {
-  box-sizing: border-box; /* keeping the frame borderless */
+  box-sizing: border-box;
 }
 
 *, *:before, *:after {
@@ -9,11 +10,9 @@
 body {
   margin: 0;
   padding: 0;
-
-  /* background-color: #aacc96;  */
 }
 
-/* Let React use the full screen freely */
+/* react is now going to be full screen and wont have to use 90 % view */
 #root {
   min-height: 110vh;
   display: flex;
