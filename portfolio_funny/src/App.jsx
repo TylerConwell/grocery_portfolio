@@ -3,11 +3,11 @@ import './App.css';
 
 import resume from './assets/figma_resume_template.png';
 import vscode from './assets/vscode_figma_template.png';
-
 import floopy from './assets/floopy_vaper.gif';
 import idea from './assets/background_link_tyler.jpg';
 
 function App() {
+  
   const [doorsOpen, setDoorsOpen] = useState(false);
 
   // Trigger the door opening animation shortly after the component mounts
