@@ -130,7 +130,7 @@
 /* Chunky Pop Button */
 .add-to-cart-btn {
   margin-top: auto;
-  background: var(--olive-green);
+  background: var(--forest);
   border: 3px solid var(--ink-black);
   border-radius: 16px;
   padding: 10px;
@@ -434,4 +434,150 @@
   background-color: var(--fuchsia-flowers);
   border-radius: 5px;
   border-bottom: 2px solid var(--dusty-berry);
+}
+
+
+
+/* The full layout background where the paper sits */
+.receipt-page-container {
+  min-height: 100vh;
+  background-color: #e5e5e5; /* Mimics a clean checkout counter / conveyor belt background */
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+/* The actual paper scroll roll */
+.receipt-paper {
+  background: #faf9f5; /* Warm white thermal paper tone */
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border-left: 2px solid rgba(0,0,0,0.05);
+  border-right: 2px solid rgba(0,0,0,0.05);
+  border-bottom: 6px solid #1a1a1a; /* Clean flat bottom edge */
+}
+
+/* Container spacing for elements under the cutoff line */
+.receipt-contents {
+  padding: 30px 40px;
+}
+
+/* Escape hatch back to the storefront grid */
+.receipt-back-btn {
+  margin: 20px 40px 0 40px;
+  background: var(--ink-black);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.receipt-back-btn:hover {
+  opacity: 0.8;
+}
+
+.receipt-header-info {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.receipt-header-info h2 {
+  font-size: 1.3rem;
+  margin: 0 0 5px 0;
+}
+
+.receipt-header-info p {
+  font-size: 0.8rem;
+  margin: 2px 0;
+}
+
+.receipt-line-divider {
+  margin: 15px 0;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.receipt-section-title {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+/* Items formatting structure */
+.receipt-item-row {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.receipt-item-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+/* Interactive link styling to blend cleanly with receipt aesthetic */
+.receipt-action-link {
+  align-self: flex-start;
+  background: #fff;
+  color: var(--ink-black);
+  text-decoration: none;
+  border: 2px solid var(--ink-black);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.85rem;
+  box-shadow: 3px 3px 0px var(--ink-black);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.receipt-action-link:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--ink-black);
+}
+
+.receipt-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin: 6px 0;
+}
+
+.bold-total {
+  font-size: 1.3rem;
+}
+
+/* Register barcode effect styling */
+.receipt-barcode {
+  text-align: center;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  margin: 30px 0 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.barcode-number {
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  margin-top: 4px;
+}
+
+.receipt-thankyou {
+  text-align: center;
+  font-size: 0.85rem;
+  margin: 15px 0 0 0;
 }
