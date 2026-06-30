@@ -9,8 +9,10 @@ import idea from './assets/background_link_tyler.jpg';
 function App() {
   
   const [doorsOpen, setDoorsOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false); // Kept in case you use it later
   const [showReceipt, setShowReceipt] = useState(false);
+  
+  // NEW: State to hold whichever items the user chooses
+  const [cart, setCart] = useState([]);
 
   // Trigger the door opening animation shortly after the component mounts
   useEffect(() => {
@@ -21,29 +23,51 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  // UPDATED: Added target links and prices directly into the data structure
   const sampleProducts = [
     { 
       id: 1, 
       name: "My Resume", 
       price: "¥999 (Free for you!)", 
+      displayPrice: "¥0",
       badge: "Popular!", 
-      image: resume 
+      image: resume,
+      link: "/my-resume.pdf", // Update to your actual local file or drive path
+      isDownload: true
     },
     { 
       id: 2, 
       name: "My Skills", 
-      price: "¥1,800 (Salery is negotiable)", 
+      price: "¥1,800 (Salary negotiable)", 
+      displayPrice: "¥0",
       badge: "New", 
-      image: vscode 
+      image: vscode,
+      link: "https://yourportfolio.org/skills", // Update to your active link
+      isDownload: false
     },
     { 
       id: 3, 
       name: "All My Projects", 
       price: "¥450 (Discounted for you!)", 
+      displayPrice: "¥0",
       badge: "Sale", 
-      image: idea 
+      image: idea,
+      link: "https://yourportfolio.org/projects", // Update to your active link
+      isDownload: false
     },
   ];
+
+  // Handler to add an item if it isn't already in the basket
+  const handleAddToCart = (product) => {
+    if (!cart.some(item => item.id === product.id)) {
+      setCart([...cart, product]);
+    }
+  };
+
+  // Handler to drop an item out of the receipt list
+  const handleRemoveFromCart = (id) => {
+    setCart(cart.filter(item => item.id !== id));
+  };
 
   return (
     <>
@@ -72,10 +96,10 @@ function App() {
         /* 2. MAIN KAWAII SHOP WEB PAGE */
         <div className={`shop-container ${doorsOpen ? 'visible' : ''}`}>
 
-          {/* TOP RIGHT CHECKOUT BUTTON */}
+          {/* TOP RIGHT CHECKOUT BUTTON WITH BASKET COUNT */}
           <div style={{ position: 'absolute', top: '20px', right: '30px', zIndex: 100 }}>
             <button className="add-to-cart-btn" onClick={() => setShowReceipt(true)}>
-              🛒  Checkout
+              🛒 Checkout ({cart.length})
             </button>
           </div>
 
@@ -84,7 +108,7 @@ function App() {
             <p className="shop-subtitle">Welcome to my portfolio convenience shop</p>
           </header>
 
-          {/* making the bottom of the shelf */}
+          {/* Top shelf */}
           <div className="shelf">
             <div className="bottle-container"><div className="cap"></div><div className="neck"></div><div className="body"></div></div>
             <div className="bottle-container"><div className="cap"></div><div className="neck"></div><div className="body"></div></div>
@@ -98,28 +122,37 @@ function App() {
           </div>
 
           <main className="product-grid">
-            {sampleProducts.map((product) => (
-              <div key={product.id} className="product-card">
-                <span className="product-badge">{product.badge}</span>
-                
-                <div className="product-image-box">
-                  <img 
-                    src={product.image} 
-                    alt={product.name} 
-                    className="product-img"
-                  />
+            {sampleProducts.map((product) => {
+              const isInCart = cart.some(item => item.id === product.id);
+              return (
+                <div key={product.id} className="product-card">
+                  <span className="product-badge">{product.badge}</span>
+                  
+                  <div className="product-image-box">
+                    <img 
+                      src={product.image} 
+                      alt={product.name} 
+                      className="product-img"
+                    />
+                  </div>
+                  
+                  <div className="product-info">
+                    <h2 className="product-name">{product.name}</h2>
+                    <span className="product-price">{product.price}</span>
+                    <button 
+                      className="add-to-cart-btn"
+                      onClick={() => handleAddToCart(product)}
+                      style={{ backgroundColor: isInCart ? 'var(--accent-yellow)' : '' }}
+                    >
+                      {isInCart ? "In Basket! 🛒" : "Add to Cart"}
+                    </button>
+                  </div>
                 </div>
-                
-                <div className="product-info">
-                  <h2 className="product-name">{product.name}</h2>
-                  <span className="product-price">{product.price}</span>
-                  <button className="add-to-cart-btn">Add to Cart</button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </main>
 
-          {/* making the bottom of the shelf */}
+          {/* Bottom shelf */}
           <div className="bottom_shelf">
             <div className="can-container"><div className="can_body"></div></div>
             <div className="can-container"><div className="can_body"></div></div>
@@ -136,11 +169,11 @@ function App() {
 
       ) : (
 
-        /* 3. FULL-PAGE RECEIPT VIEW */
+        /* 3. DYNAMIC FULL-PAGE RECEIPT VIEW */
         <div className="receipt-page-container">
           <div className="receipt-paper">
+            <div className="receipt-zigzag-top"></div>
             
-            {/* Back to Shop Button */}
             <button className="receipt-back-btn" onClick={() => setShowReceipt(false)}>
               ← Return to Aisles
             </button>
@@ -156,42 +189,45 @@ function App() {
               <main className="receipt-items-area">
                 <h3 className="receipt-section-title">CUSTOMER ORDER REVIEW</h3>
                 
-                <div className="receipt-item-row">
-                  <div className="receipt-item-details">
-                    <span className="receipt-item-name">✨ MY RESUME</span>
-                    <span className="receipt-item-price">¥0</span>
-                  </div>
-                  <a href="/my-resume.pdf" download className="receipt-action-link">
-                    📄 View/Download PDF
-                  </a>
-                </div>
-
-                <div className="receipt-item-row">
-                  <div className="receipt-item-details">
-                    <span className="receipt-item-name">✨ MY SKILLS</span>
-                    <span className="receipt-item-price">¥0</span>
-                  </div>
-                  <a href="https://yourportfolio.org/skills" target="_blank" rel="noreferrer" className="receipt-action-link">
-                    🔗 Open Skills Website
-                  </a>
-                </div>
-
-                <div className="receipt-item-row">
-                  <div className="receipt-item-details">
-                    <span className="receipt-item-name">✨ ALL MY PROJECTS</span>
-                    <span className="receipt-item-price">¥0</span>
-                  </div>
-                  <a href="https://yourportfolio.org/projects" target="_blank" rel="noreferrer" className="receipt-action-link">
-                    🔗 Open Projects Website
-                  </a>
-                </div>
+                {cart.length === 0 ? (
+                  <p style={{ textAlign: 'center', padding: '20px 0', fontStyle: 'italic', color: '#666' }}>
+                    Your basket is empty! Go back and add items.
+                  </p>
+                ) : (
+                  /* Maps over exactly what the user picked */
+                  cart.map((item) => (
+                    <div key={item.id} className="receipt-item-row">
+                      <div className="receipt-item-details">
+                        <span className="receipt-item-name">✨ {item.name.toUpperCase()}</span>
+                        <span className="receipt-item-price">{item.displayPrice}</span>
+                      </div>
+                      <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
+                        <a 
+                          href={item.link} 
+                          target="_blank" 
+                          rel="noreferrer" 
+                          download={item.isDownload}
+                          className="receipt-action-link"
+                        >
+                          {item.isDownload ? "📄 View/Download PDF" : "🔗 Open Website"}
+                        </a>
+                        <button 
+                          onClick={() => handleRemoveFromCart(item.id)}
+                          style={{ background: 'none', border: 'none', color: '#bd3a3a', cursor: 'pointer', fontFamily: 'monospace', fontWeight: 'bold', fontSize: '0.8rem' }}
+                        >
+                          [Remove]
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                )}
               </main>
 
               <footer className="receipt-footer-area">
                 <div className="receipt-line-divider">--------------------------------</div>
                 <div className="receipt-total-row">
-                  <span>SUBTOTAL</span>
-                  <span>¥0</span>
+                  <span>TOTAL ITEMS</span>
+                  <span>{cart.length}</span>
                 </div>
                 <div className="receipt-total-row bold-total">
                   <span>TOTAL DUE</span>
