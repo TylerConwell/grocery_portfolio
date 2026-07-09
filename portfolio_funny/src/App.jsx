@@ -5,6 +5,19 @@ import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() {
+  const [doorsOpen, setDoorsOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDoorsOpen(true);
+    }, 1000);
+    return() => clearTimeout(timer);
+  }, []);
+
+
+
+
+
 
   return (
     <>
